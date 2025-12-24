@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^3.4.19"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run watch:css\" \"npm run serve\"",
+    "watch:css": "tailwindcss -i ./input.css -o ./output.css --watch",
+    "serve": "live-server --watch=dist"
+  }
+}
