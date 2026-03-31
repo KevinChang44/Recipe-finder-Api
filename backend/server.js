@@ -45,7 +45,7 @@ app.post("/api/user", async (req, res) => {
 app.post("/api/favorites", async (req, res) => {
   const { userId, mealId, mealName, mealThumb } = req.body;
 
-  if (!username) return res.status(400).json({ error: "Username required" });
+  if (!userId) return res.status(400).json({ error: "User ID required" });
 
   try {
     const [result] = await pool.query(
@@ -58,8 +58,8 @@ app.post("/api/favorites", async (req, res) => {
     }
     res.json({ success: true, favoriteId: result.insertId });
   } catch (error) {
-    console.error("User Route Error:", error);
-    res.status(500).json({ error: "Could not process user" });
+    console.error("Favorite Route Error:", error);
+    res.status(500).json({ error: "Could not save favorite" });
   }
 });
 
